@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Remove</description>
+   <name>TS3 - CR - 2</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>4d16ec71-aa8e-4ac5-83e6-868e67bbc0a7</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,55 @@
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
+import internal.GlobalVariable as GlobalVariable
+import org.openqa.selenium.Keys as Keys
+
+WebUI.callTestCase(findTestCase('TS1 - Login/TS1 - LG - 1'), [:], FailureHandling.STOP_ON_FAILURE)
+
+def allCartButton = WebUI.findWebElements(findTestObject('Object Repository/Carts/Add to cart button'), 10)
+
+for(int i = 0; i < 2; i++) {
+	allCartButton[i].click()
+	WebUI.delay(1)
+}
+
+WebUI.click(findTestObject('Object Repository/Carts/Icon shopping_cart_link'))
+
+def Carts = []
+
+def cartItems = WebUI.findWebElements(findTestObject('Object Repository/Carts/ItemCarts'), 10)
+
+for(def cart : cartItems) {
+	Carts.add(cart.getText())
+}
+
+WebUI.click(findTestObject('Object Repository/Carts/Button Checkout'))
+
+WebUI.setText(findTestObject('Object Repository/Carts/input_Checkout Your Information_first-name'), "Manusia")
+
+WebUI.setText(findTestObject('Object Repository/Carts/input_Checkout Your Information_last-name'), "Gemuruh")
+
+WebUI.setText(findTestObject('Object Repository/Carts/input_Checkout Your Information_postal-code'), "17424")
+
+WebUI.click(findTestObject('Object Repository/Carts/Button Continue'))
+
+// Verify data, but apparently doesnt needed because the class is same so the data that shows up should be the same elseway.
+
+WebUI.click(findTestObject('Object Repository/Carts/Button Finish'))
+
+WebUI.verifyElementVisible(findTestObject('Object Repository/Carts/h2_Thank you for your order'))
+
+WebUI.closeBrowser()

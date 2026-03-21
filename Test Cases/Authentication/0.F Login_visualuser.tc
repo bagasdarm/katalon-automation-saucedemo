@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>0.F Login_visualuser</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>82d70183-852a-4fc9-9d6d-f76b83d0d8be</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>0.B Login_lockedoutuser</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>48172ce8-151a-42c5-b441-55d3fa285ede</testCaseGuid>
+</TestCaseEntity>
